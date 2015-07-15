@@ -313,7 +313,7 @@ if [[ "${XCODE_BUILDER_ACTION}" == "build" ]] ; then
     ${CONFIG_xcode_project_action} "${projectfile}" \
     -scheme "${XCODE_BUILDER_SCHEME}" \
     clean build \
-    PROVISIONING_PROFILE="${xcode_build_param_prov_profile_UUID}" \
+    APP_PROFILE="${xcode_build_param_prov_profile_UUID}" \
     CODE_SIGN_IDENTITY="${CERTIFICATE_IDENTITY}" \
     OTHER_CODE_SIGN_FLAGS="--keychain ${BITRISE_KEYCHAIN}"
 elif [[ "${XCODE_BUILDER_ACTION}" == "unittest" ]] ; then
@@ -328,7 +328,7 @@ elif [[ "${XCODE_BUILDER_ACTION}" == "unittest" ]] ; then
       clean test \
       -destination "${CONFIG_unittest_device_destination}" \
       -sdk iphonesimulator \
-      PROVISIONING_PROFILE="${xcode_build_param_prov_profile_UUID}" \
+      APP_PROFILE="${xcode_build_param_prov_profile_UUID}" \
       CODE_SIGN_IDENTITY="${CERTIFICATE_IDENTITY}" \
       OTHER_CODE_SIGN_FLAGS="--keychain ${BITRISE_KEYCHAIN}"
   }
@@ -368,7 +368,7 @@ elif [[ "${XCODE_BUILDER_ACTION}" == "analyze" ]] ; then
     ${CONFIG_xcode_project_action} "${projectfile}" \
     -scheme "${XCODE_BUILDER_SCHEME}" \
     clean analyze \
-    PROVISIONING_PROFILE="${xcode_build_param_prov_profile_UUID}" \
+    APP_PROFILE="${xcode_build_param_prov_profile_UUID}" \
     CODE_SIGN_IDENTITY="${CERTIFICATE_IDENTITY}" \
     OTHER_CODE_SIGN_FLAGS="--keychain ${BITRISE_KEYCHAIN}"
 elif [[ "${XCODE_BUILDER_ACTION}" == "archive" ]] ; then
@@ -376,7 +376,7 @@ elif [[ "${XCODE_BUILDER_ACTION}" == "archive" ]] ; then
     ${CONFIG_xcode_project_action} "${projectfile}" \
     -scheme "${XCODE_BUILDER_SCHEME}" \
     clean archive -archivePath "${ARCHIVE_PATH}" \
-    PROVISIONING_PROFILE="${xcode_build_param_prov_profile_UUID}" \
+    APP_PROFILE="${xcode_build_param_prov_profile_UUID}" \
     CODE_SIGN_IDENTITY="${CERTIFICATE_IDENTITY}" \
     OTHER_CODE_SIGN_FLAGS="--keychain ${BITRISE_KEYCHAIN}"
 fi
